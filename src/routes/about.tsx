@@ -8,12 +8,12 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Briseman Star is a cutting-edge digital and lifestyle agency in Kampala with 15 years of digital experience across events, branding and music.",
+          "Briseman Star is a cutting-edge digital and lifestyle agency in Kampala with 5 years of digital experience across events, branding and music.",
       },
       { property: "og:title", content: "About Us — Briseman Star" },
       {
         property: "og:description",
-        content: "15 years of digital experience across events, branding and music in Kampala.",
+        content: "5 years of digital experience across events, branding and music in Kampala.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -41,7 +41,7 @@ function About() {
           A stage-first studio from <span className="text-accent">Kampala</span>
         </h1>
         <p className="rise mt-8 max-w-[52ch] text-pretty text-lg text-brand/70" style={{ animationDelay: ".15s" }}>
-          Briseman Star is a cutting-edge digital and lifestyle agency. For fifteen years we've produced
+          Briseman Star is a cutting-edge digital and lifestyle agency. For five years we've produced
           events, built brands and developed artists — delivering quality with honesty and client
           satisfaction.
         </p>
@@ -56,7 +56,7 @@ function About() {
         />
         <div>
           <p className="font-display text-[clamp(4rem,10vw,8rem)] leading-none text-accent">
-            15<span className="text-brand/30">yrs</span>
+            5<span className="text-brand/30">yrs</span>
           </p>
           <h2 className="mt-4 font-display text-4xl leading-[1.05] md:text-5xl">Of digital experience</h2>
           <p className="mt-5 max-w-[46ch] text-pretty text-brand/70">

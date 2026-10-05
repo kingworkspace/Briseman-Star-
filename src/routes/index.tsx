@@ -16,13 +16,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "A cutting-edge digital and lifestyle agency with 15 years of experience — events production, brand strategy, PR and record label services in Kampala.",
+          "A cutting-edge digital and lifestyle agency with 5 years of experience — events production, brand strategy, PR and record label services in Kampala.",
       },
       { property: "og:title", content: "Briseman Star — We Make Your Brand Stand Out" },
       {
         property: "og:description",
         content:
-          "Events production, brand strategy, PR and record label services. 15 years of digital experience.",
+          "Events production, brand strategy, PR and record label services. 5 years of digital experience.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -120,13 +120,13 @@ function Index() {
       <section className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-[1.1fr_1fr] lg:px-10">
         <div className="rise">
           <p className="max-w-[8ch] font-display text-[clamp(5rem,14vw,11rem)] leading-none text-accent">
-            15<span className="text-brand/30">yrs</span>
+            5<span className="text-brand/30">yrs</span>
           </p>
           <h2 className="mt-4 max-w-[22ch] text-balance font-display text-4xl leading-[1.05] md:text-5xl">
             Years of digital experience
           </h2>
           <p className="mt-5 max-w-[46ch] text-pretty text-brand/70">
-            From the first gig to full production stage sets and signed rosters, we've spent fifteen years
+            From the first gig to full production stage sets and signed rosters, we've spent five years
             turning briefs into nights people can't stop talking about.
           </p>
         </div>
