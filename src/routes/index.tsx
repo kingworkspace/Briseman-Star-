@@ -159,6 +159,28 @@ function Index() {
       </section>
 
       <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+        <div className="mb-10 flex items-end justify-between gap-6">
+          <h2 className="max-w-[16ch] text-balance font-display text-5xl leading-[0.9] md:text-7xl">
+            Our work on stage
+          </h2>
+          <p className="hidden text-sm uppercase tracking-[0.2em] text-brand/50 sm:block">Recent events</p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {gallery.map((g, i) => (
+            <img
+              key={g.src}
+              src={g.src}
+              alt={g.alt}
+              loading="lazy"
+              className={`w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10 ${
+                i === 0 ? "aspect-[4/3] sm:col-span-2" : "aspect-[4/3]"
+              }`}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
         <div className="relative grid items-center gap-10 overflow-hidden rounded-xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-md md:grid-cols-[1.2fr_1fr] md:p-10">
           <div className="sheen pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 skew-x-[-16deg] bg-white/10" />
           <div className="relative">

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import artistImg from "@/assets/artist.jpg";
+import workMetro from "@/assets/work-metro.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -49,11 +49,9 @@ function About() {
 
       <section className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-6 pb-24 md:grid-cols-2 lg:px-10">
         <img
-          src={artistImg}
-          alt="Performer under a single spotlight"
+          src={workMetro.url}
+          alt="Briseman Star production at a corporate launch event"
           loading="lazy"
-          width={1024}
-          height={1024}
           className="aspect-square w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10"
         />
         <div>
