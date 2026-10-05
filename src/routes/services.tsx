@@ -1,4 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import workRunway from "@/assets/work-runway.jpg.asset.json";
+import workGarden from "@/assets/work-garden.jpg.asset.json";
+import workOutdoor from "@/assets/work-outdoor-stage.jpg.asset.json";
+import studio from "@/assets/studio.jpg.asset.json";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
