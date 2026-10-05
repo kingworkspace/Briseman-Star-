@@ -10,7 +10,7 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import appCss from "../styles.css";
+import appCss from "../styles.css?url";
 import brisemanLogo from "../assets/briseman-star-logo.png.asset.json";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
