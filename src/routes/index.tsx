@@ -132,11 +132,9 @@ function Index() {
         </div>
         <div className="rise" style={{ animationDelay: ".15s" }}>
           <img
-            src={stageImg}
-            alt="Concert stage under warm spotlights"
+            src={redStage.url}
+            alt="Stage built by Briseman Star under red lighting"
             loading="lazy"
-            width={1088}
-            height={1200}
             className="aspect-[4/5] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10"
           />
         </div>
@@ -182,11 +180,9 @@ function Index() {
           </div>
           <div className="relative">
             <img
-              src={artistImg}
-              alt="Singer in a warm spotlight"
+              src={studio.url}
+              alt="Briseman Star recording studio"
               loading="lazy"
-              width={1024}
-              height={1024}
               className="aspect-square w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10"
             />
           </div>
