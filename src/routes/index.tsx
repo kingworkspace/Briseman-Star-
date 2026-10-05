@@ -1,6 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import stageImg from "@/assets/stage.jpg";
-import artistImg from "@/assets/artist.jpg";
+import redStage from "@/assets/work-red-stage.jpg.asset.json";
+import studio from "@/assets/studio.jpg.asset.json";
+import workMetro from "@/assets/work-metro.jpg.asset.json";
+import workOutdoor from "@/assets/work-outdoor-stage.jpg.asset.json";
+import workGarden from "@/assets/work-garden.jpg.asset.json";
+import workPoolside from "@/assets/work-poolside.jpg.asset.json";
+import workRunway from "@/assets/work-runway.jpg.asset.json";
+import workLed from "@/assets/work-led.jpg.asset.json";
+import workTents from "@/assets/work-tents.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,6 +50,16 @@ const services = [
   { n: "07", title: "Production Stage Sets", text: "Stage set design can be the difference between a good event and a great one." },
   { n: "08", title: "Public Relations", text: "Media coverage that enhances credibility and raises brand awareness." },
   { n: "09", title: "Record Label Services", text: "A&R, artist development, funding, distribution and promotion." },
+];
+
+const gallery = [
+  { src: workMetro.url, alt: "Corporate product launch with LED screens and full lighting rig" },
+  { src: workRunway.url, alt: "Fashion runway event with stage screens and chandeliers" },
+  { src: workOutdoor.url, alt: "Outdoor stage with large LED screen and panel setup" },
+  { src: workGarden.url, alt: "Garden event lounge with draped tent and white seating" },
+  { src: workPoolside.url, alt: "Poolside stage build at a hotel venue" },
+  { src: workLed.url, alt: "Outdoor LED screen and lighting rig setup" },
+  { src: workTents.url, alt: "Garden event with marquee tents and lounge furniture" },
 ];
 
 function Index() {
@@ -115,11 +132,9 @@ function Index() {
         </div>
         <div className="rise" style={{ animationDelay: ".15s" }}>
           <img
-            src={stageImg}
-            alt="Concert stage under warm spotlights"
+            src={redStage.url}
+            alt="Stage built by Briseman Star under red lighting"
             loading="lazy"
-            width={1088}
-            height={1200}
             className="aspect-[4/5] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10"
           />
         </div>
@@ -139,6 +154,28 @@ function Index() {
               <h3 className="mt-3 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-pretty text-sm text-brand/60">{s.text}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+        <div className="mb-10 flex items-end justify-between gap-6">
+          <h2 className="max-w-[16ch] text-balance font-display text-5xl leading-[0.9] md:text-7xl">
+            Our work on stage
+          </h2>
+          <p className="hidden text-sm uppercase tracking-[0.2em] text-brand/50 sm:block">Recent events</p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {gallery.map((g, i) => (
+            <img
+              key={g.src}
+              src={g.src}
+              alt={g.alt}
+              loading="lazy"
+              className={`w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10 ${
+                i === 0 ? "aspect-[4/3] sm:col-span-2" : "aspect-[4/3]"
+              }`}
+            />
           ))}
         </div>
       </section>
@@ -165,11 +202,9 @@ function Index() {
           </div>
           <div className="relative">
             <img
-              src={artistImg}
-              alt="Singer in a warm spotlight"
+              src={studio.url}
+              alt="Briseman Star recording studio"
               loading="lazy"
-              width={1024}
-              height={1024}
               className="aspect-square w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10"
             />
           </div>

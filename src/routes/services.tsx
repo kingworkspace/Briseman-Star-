@@ -1,4 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import workRunway from "@/assets/work-runway.jpg.asset.json";
+import workGarden from "@/assets/work-garden.jpg.asset.json";
+import workOutdoor from "@/assets/work-outdoor-stage.jpg.asset.json";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -110,6 +113,14 @@ function Services() {
               goals and help you achieve them.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <img src={workRunway.url} alt="Fashion runway event production" loading="lazy" className="aspect-[4/3] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10" />
+          <img src={workGarden.url} alt="Garden event lounge setup" loading="lazy" className="aspect-[4/3] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10" />
+          <img src={workOutdoor.url} alt="Outdoor stage with LED screen" loading="lazy" className="aspect-[4/3] w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10" />
         </div>
       </section>
 
