@@ -132,7 +132,7 @@ function SiteHeader() {
         <img
           src={brisemanLogo.url}
           alt="Briseman Star — Events & Records"
-          className="h-11 w-auto mix-blend-screen md:h-12"
+          className="h-12 w-auto md:h-14"
         />
       </Link>
       <nav className="hidden items-center gap-8 text-sm font-medium text-brand/60 md:flex">
@@ -163,7 +163,7 @@ function SiteFooter() {
   return (
     <footer className="relative z-10 mx-auto flex max-w-7xl flex-col justify-between gap-6 border-t border-border px-6 py-10 md:flex-row md:items-center lg:px-10">
       <div className="flex items-center gap-2.5">
-        <img src={brisemanLogo.url} alt="Briseman Star — Events & Records" className="h-9 w-auto mix-blend-screen" />
+        <img src={brisemanLogo.url} alt="Briseman Star — Events & Records" className="h-10 w-auto" />
       </div>
       <nav className="flex flex-wrap gap-6 text-sm text-brand/50">
         <Link to="/" className="transition-colors hover:text-brand">Home</Link>
