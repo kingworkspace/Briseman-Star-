@@ -186,6 +186,7 @@ function RootComponent() {
         <SiteHeader />
         <Outlet />
         <SiteFooter />
+        <SupportChat />
       </div>
     </QueryClientProvider>
   );
