@@ -40,16 +40,14 @@ const marqueeItems = [
   "Public relations",
 ];
 
-const services = [
-  { n: "01", title: "Brand Strategy", text: "Let's make your brand stand out." },
-  { n: "02", title: "Online Media Management", text: "All your digital channels tailored to keep your audience updated." },
-  { n: "03", title: "Audio Visual Services", text: "Unforgettable environments through stimulating your attendees' senses." },
-  { n: "04", title: "Digital Banners", text: "A colourful, engaging stage backdrop that enhances your branding and event experience." },
-  { n: "05", title: "Decor & Style", text: "Deliver a message, promote a product, enhance the theme, build brand recognition." },
-  { n: "06", title: "Multimedia Production", text: "Spectacular in-house multimedia content designed to engage and excite." },
-  { n: "07", title: "Production Stage Sets", text: "Stage set design can be the difference between a good event and a great one." },
-  { n: "08", title: "Public Relations", text: "Media coverage that enhances credibility and raises brand awareness." },
-  { n: "09", title: "Record Label Services", text: "A&R, artist development, funding, distribution and promotion." },
+const gallery = [
+  { src: workMetro.url, alt: "Corporate product launch with LED screens and full lighting rig" },
+  { src: workRunway.url, alt: "Fashion runway event with stage screens and chandeliers" },
+  { src: workOutdoor.url, alt: "Outdoor stage with large LED screen and panel setup" },
+  { src: workGarden.url, alt: "Garden event lounge with draped tent and white seating" },
+  { src: workPoolside.url, alt: "Poolside stage build at a hotel venue" },
+  { src: workLed.url, alt: "Outdoor LED screen and lighting rig setup" },
+  { src: workTents.url, alt: "Garden event with marquee tents and lounge furniture" },
 ];
 
 function Index() {
