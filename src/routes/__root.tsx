@@ -96,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -129,8 +129,11 @@ function SiteHeader() {
   return (
     <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
       <Link to="/" className="flex items-center gap-2.5">
-        <span className="size-2.5 rounded-full bg-accent shadow-[0_0_18px_5px_rgba(255,77,0,0.55)]" />
-        <span className="text-sm font-bold uppercase tracking-[0.25em]">Briseman Star</span>
+        <img
+          src={brisemanLogo.url}
+          alt="Briseman Star — Events & Records"
+          className="h-11 w-auto mix-blend-screen md:h-12"
+        />
       </Link>
       <nav className="hidden items-center gap-8 text-sm font-medium text-brand/60 md:flex">
         <Link to="/" className="transition-colors hover:text-accent" activeProps={{ className: "text-brand" }}>
@@ -160,8 +163,7 @@ function SiteFooter() {
   return (
     <footer className="relative z-10 mx-auto flex max-w-7xl flex-col justify-between gap-6 border-t border-border px-6 py-10 md:flex-row md:items-center lg:px-10">
       <div className="flex items-center gap-2.5">
-        <span className="size-2 rounded-full bg-accent" />
-        <span className="text-sm font-bold uppercase tracking-[0.25em]">Briseman Star</span>
+        <img src={brisemanLogo.url} alt="Briseman Star — Events & Records" className="h-9 w-auto mix-blend-screen" />
       </div>
       <nav className="flex flex-wrap gap-6 text-sm text-brand/50">
         <Link to="/" className="transition-colors hover:text-brand">Home</Link>
