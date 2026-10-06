@@ -1,4 +1,37 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { BookingForm } from "@/components/BookingForm";
+import { Faq } from "@/components/Faq";
+import { WhatsAppIcon } from "@/components/WhatsAppButton";
+import { whatsappLink } from "@/lib/whatsapp";
+
+function DemoSubmit() {
+  const submit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const d = new FormData(e.currentTarget);
+    const name = String(d.get("artist") || "").trim();
+    const link = String(d.get("link") || "").trim();
+    if (!name || !link) return;
+    window.open(
+      whatsappLink(`Hello Briseman Star Records, demo submission.\nArtist: ${name}\nGenre: ${d.get("genre") || "-"}\nMusic link: ${link}`),
+      "_blank",
+      "noopener",
+    );
+  };
+  const field = "mt-2 w-full rounded-lg bg-white/5 px-4 py-3 text-brand ring-1 ring-white/10 outline-none placeholder:text-brand/30 focus:ring-accent";
+  return (
+    <form id="demo" onSubmit={submit} className="scroll-mt-24 rounded-xl bg-white/5 p-7 ring-1 ring-white/10 backdrop-blur-md md:p-10">
+      <p className="text-sm font-semibold uppercase tracking-[0.25em] text-accent">A&amp;R</p>
+      <h2 className="mt-4 font-display text-4xl leading-[0.95] md:text-5xl">Submit your demo</h2>
+      <p className="mt-4 text-brand/70">Upcoming artist? Share your music — our A&amp;R team listens to every submission.</p>
+      <input name="artist" required maxLength={80} placeholder="Artist name *" className={field} />
+      <input name="genre" maxLength={50} placeholder="Genre (Afrobeat, Dancehall, Gospel...)" className={field} />
+      <input name="link" type="url" required maxLength={300} placeholder="Link to your music (YouTube, Audiomack...) *" className={field} />
+      <button type="submit" className="mt-6 inline-flex items-center gap-3 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-brand hover:text-ink">
+        <WhatsAppIcon /> Send demo
+      </button>
+    </form>
+  );
+}
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -65,27 +98,44 @@ function Contact() {
           ))}
         </div>
 
-        <div className="mt-16 rounded-xl bg-white/5 p-7 ring-1 ring-white/10 backdrop-blur-md md:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-accent">Signed artist</p>
-          <h2 className="mt-4 font-display text-4xl leading-[0.95] md:text-5xl">Brian J Official</h2>
-          <p className="mt-4 max-w-[52ch] text-pretty text-brand/70">
-            The first artist on the Briseman Star Records roster. Stream the music:
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {artistLinks.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-brand/80 ring-1 ring-white/10 transition-colors hover:bg-accent hover:text-accent-foreground hover:ring-accent"
-              >
-                {l.label} ↗
-              </a>
-            ))}
+        <a
+          href={whatsappLink("Hello Briseman Star, I'd like to inquire about booking an event.")}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-6 inline-flex items-center gap-3 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          <WhatsAppIcon /> Chat on WhatsApp
+        </a>
+
+        <div className="mt-16">
+          <BookingForm />
+        </div>
+
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          <div className="rounded-xl bg-white/5 p-7 ring-1 ring-white/10 backdrop-blur-md md:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-accent">Signed artist</p>
+            <h2 className="mt-4 font-display text-4xl leading-[0.95] md:text-5xl">Brian J Official</h2>
+            <p className="mt-4 max-w-[52ch] text-pretty text-brand/70">
+              The first artist on the Briseman Star Records roster. Stream the music:
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {artistLinks.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-brand/80 ring-1 ring-white/10 transition-colors hover:bg-accent hover:text-accent-foreground hover:ring-accent"
+                >
+                  {l.label} ↗
+                </a>
+              ))}
+            </div>
           </div>
+          <DemoSubmit />
         </div>
       </section>
+      <Faq />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import brisemanLogo from "../assets/briseman-star-logo.png.asset.json";
 import { SupportChat } from "../components/SupportChat";
+import { WhatsAppButton } from "../components/WhatsAppButton";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -187,6 +188,7 @@ function RootComponent() {
         <Outlet />
         <SiteFooter />
         <SupportChat />
+        <WhatsAppButton />
       </div>
     </QueryClientProvider>
   );
