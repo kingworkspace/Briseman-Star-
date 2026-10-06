@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Faq } from "@/components/Faq";
 import redStage from "@/assets/work-red-stage.jpg.asset.json";
 import studio from "@/assets/studio.jpg.asset.json";
 import workMetro from "@/assets/work-metro.jpg.asset.json";
@@ -52,15 +54,48 @@ const services = [
   { n: "09", title: "Record Label Services", text: "A&R, artist development, funding, distribution and promotion." },
 ];
 
+const CATS = ["All", "Stages & LED", "Corporate", "Decor & Lounges", "Fashion"] as const;
 const gallery = [
-  { src: workMetro.url, alt: "Corporate product launch with LED screens and full lighting rig" },
-  { src: workRunway.url, alt: "Fashion runway event with stage screens and chandeliers" },
-  { src: workOutdoor.url, alt: "Outdoor stage with large LED screen and panel setup" },
-  { src: workGarden.url, alt: "Garden event lounge with draped tent and white seating" },
-  { src: workPoolside.url, alt: "Poolside stage build at a hotel venue" },
-  { src: workLed.url, alt: "Outdoor LED screen and lighting rig setup" },
-  { src: workTents.url, alt: "Garden event with marquee tents and lounge furniture" },
+  { src: workMetro.url, title: "Metro Cement Launch", cat: "Corporate", alt: "Corporate product launch with LED screens and full lighting rig" },
+  { src: workRunway.url, title: "Fashion Runway Night", cat: "Fashion", alt: "Fashion runway event with stage screens and chandeliers" },
+  { src: workOutdoor.url, title: "Outdoor Concert Stage", cat: "Stages & LED", alt: "Outdoor stage with large LED screen and panel setup" },
+  { src: workGarden.url, title: "Garden Lounge Reception", cat: "Decor & Lounges", alt: "Garden event lounge with draped tent and white seating" },
+  { src: workPoolside.url, title: "Hotel Poolside Stage", cat: "Stages & LED", alt: "Poolside stage build at a hotel venue" },
+  { src: workLed.url, title: "LED Screen & Lighting Rig", cat: "Stages & LED", alt: "Outdoor LED screen and lighting rig setup" },
+  { src: workTents.url, title: "Marquee & Lounge Setup", cat: "Decor & Lounges", alt: "Garden event with marquee tents and lounge furniture" },
 ];
+
+function Gallery() {
+  const [cat, setCat] = useState<(typeof CATS)[number]>("All");
+  const items = gallery.filter((g) => cat === "All" || g.cat === cat);
+  return (
+    <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
+      <div className="mb-8 flex items-end justify-between gap-6">
+        <h2 className="max-w-[16ch] text-balance font-display text-5xl leading-[0.9] md:text-7xl">Our work on stage</h2>
+        <p className="hidden text-sm uppercase tracking-[0.2em] text-brand/50 sm:block">Recent events</p>
+      </div>
+      <div className="mb-8 flex flex-wrap gap-2">
+        {CATS.map((c) => (
+          <button key={c} onClick={() => setCat(c)} aria-pressed={cat === c}
+            className={`rounded-full px-4 py-2 text-sm ring-1 transition-colors ${cat === c ? "bg-accent text-accent-foreground ring-accent" : "bg-white/5 text-brand/70 ring-white/10 hover:ring-brand/40"}`}>
+            {c}
+          </button>
+        ))}
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((g, i) => (
+          <figure key={g.src} className={`group relative overflow-hidden rounded-xl outline-1 -outline-offset-1 outline-white/10 ${i === 0 && cat === "All" ? "sm:col-span-2" : ""}`}>
+            <img src={g.src} alt={g.alt} loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-5 pt-12">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent">{g.cat}</span>
+              <p className="mt-1 font-semibold text-brand">{g.title}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function Index() {
   return (
@@ -158,27 +193,7 @@ function Index() {
         </div>
       </section>
 
-      <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
-        <div className="mb-10 flex items-end justify-between gap-6">
-          <h2 className="max-w-[16ch] text-balance font-display text-5xl leading-[0.9] md:text-7xl">
-            Our work on stage
-          </h2>
-          <p className="hidden text-sm uppercase tracking-[0.2em] text-brand/50 sm:block">Recent events</p>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gallery.map((g, i) => (
-            <img
-              key={g.src}
-              src={g.src}
-              alt={g.alt}
-              loading="lazy"
-              className={`w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10 ${
-                i === 0 ? "aspect-[4/3] sm:col-span-2" : "aspect-[4/3]"
-              }`}
-            />
-          ))}
-        </div>
-      </section>
+      <Gallery />
 
       <section className="relative z-10 mx-auto max-w-7xl px-6 pb-24 lg:px-10">
         <div className="relative grid items-center gap-10 overflow-hidden rounded-xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-md md:grid-cols-[1.2fr_1fr] md:p-10">
@@ -199,6 +214,9 @@ function Index() {
                 </span>
               ))}
             </div>
+            <Link to="/contact" hash="demo" className="mt-7 inline-block text-sm font-semibold text-accent hover:text-brand">
+              Artists: submit your demo →
+            </Link>
           </div>
           <div className="relative">
             <img
@@ -208,8 +226,22 @@ function Index() {
               className="aspect-square w-full rounded-xl object-cover outline-1 -outline-offset-1 outline-white/10"
             />
           </div>
+          <div className="relative md:col-span-2">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-brand/60">Now playing — Brian J Official</p>
+            <iframe
+              title="Brian J Official on Spotify"
+              src="https://open.spotify.com/embed/artist/6dnG6QtqXrQxHWGqR0D1Zo?theme=0"
+              width="100%"
+              height="352"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              className="rounded-xl border-0"
+            />
+          </div>
         </div>
       </section>
+
+      <Faq />
 
       <section className="relative z-10 border-t border-border">
         <div className="relative mx-auto max-w-7xl px-6 py-24 text-center lg:px-10">
